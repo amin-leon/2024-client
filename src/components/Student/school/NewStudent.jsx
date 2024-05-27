@@ -27,7 +27,6 @@ const NewStudentForm = () => {
       setError(error.response.data.message);
     }
   };
-  
 
   return (
     <div className="container mx-auto mt-8 px-24 py-2">

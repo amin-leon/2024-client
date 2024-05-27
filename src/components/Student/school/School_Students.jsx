@@ -65,11 +65,11 @@ const School_Students = () => {
             value={search}
             onChange={handleSearchChange}
             placeholder="Search by name..."
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs rounded-md"
           />
           <Link to="new">
-            <button className="btn btn-primary">
-              Add New
+            <button className="btn bg-blue-500 px-5 py-2 text-white">
+              New
             </button>
           </Link>
         </div>
