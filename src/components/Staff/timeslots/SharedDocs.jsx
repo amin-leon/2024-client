@@ -5,27 +5,23 @@ import { addDocument, deleteDocument } from '../../../redux/docs/docsSlice';
 import { useParams } from 'react-router-dom';
 
 function SharedDocs() {
+  const user = useSelector((state) => state.auth.user);
   const documents = useSelector((state) => state.documents.documents);
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
   const { issueId } = useParams();
 
   useEffect(() => {
-    // Function to fetch documents
     const fetchDocuments = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/docs/documents/${issueId}`);
-        // Dispatch the action to update the documents in the Redux store
         dispatch({ type: 'documents/setDocuments', payload: response.data });
       } catch (error) {
         console.error('Error fetching documents:', error);
       }
     };
 
-    // Set up an interval to fetch documents every second
     const interval = setInterval(fetchDocuments, 1000);
-
-    // Clean up the interval on component unmount
     return () => clearInterval(interval);
   }, [dispatch]);
 
@@ -34,13 +30,13 @@ function SharedDocs() {
   };
 
 
-    // token
-    const token = sessionStorage.getItem('authToken');
+  // token
+  const token = sessionStorage.getItem('authToken');
 
-      if (!token) {
-        console.error('No token found');
-        return;
-      }
+  if (!token) {
+      console.error('No token found');
+      return;
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -53,7 +49,7 @@ function SharedDocs() {
       const formData = new FormData();
       formData.append('document', file);
       formData.append('issueId', issueId);
-      formData.append('posterUser', issueId);
+      formData.append('posterUser', user._id);
 
       const response = await axios.post('http://localhost:8080/docs/upload', formData, {
         headers: {
@@ -63,7 +59,6 @@ function SharedDocs() {
       });
 
       dispatch(addDocument(response.data.newDoc));
-      console.log('File uploaded:', response.data.newDoc);
       setFile(null);
     } catch (error) {
       console.log('Error uploading file:', error);
@@ -71,18 +66,24 @@ function SharedDocs() {
   };
 
   const handleDelete = async (documentId) => {
+    const userConfirmed = window.confirm('Are you sure you want to delete this document?');
+    if (!userConfirmed) {
+      return;
+    }
+  
     try {
-      await axios.delete(`http://localhost:8080/docs/documents/delete/${documentId}`,{
+      await axios.delete(`http://localhost:8080/docs/documents/delete/${documentId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
       dispatch(deleteDocument(documentId));
-      alert('Document deleted');
+      console.log('Document deleted');
     } catch (error) {
       console.log('Error deleting document:', error);
     }
   };
+  
 
   return (
     <div className="container mx-auto mt-8 px-4">
