@@ -19,8 +19,8 @@ function StaffPage() {
     issue.category.toLowerCase().includes(searchCategory.toLowerCase())
   );
 
-  const allIssues = useSelector((state) => state.issue.assignedIssues);
-  const recentIssues = (allIssues.slice(0, 3));
+  const allIssues = useSelector((state) => state.issue.issues);
+  const recentIssues = (allIssues.slice(0, 5));
 
   const indexOfLastIssue = currentPage * itemsPerPage;
   const indexOfFirstIssue = indexOfLastIssue - itemsPerPage;
@@ -42,7 +42,7 @@ function StaffPage() {
     <div className='md:pl-4 md:pr-4 md:pt-10 rounded-md'>
       <header className="bg-slate-200 p-5 text-black">
         <div className="container mx-auto flex justify-between items-center rounded-md">
-          <h1 className="text-xl font-bold">New Issues</h1>
+          <h1 className="text-xl font-bold"> {totalNumberIssues} New Issues</h1>
         </div>
       </header>
       <div className="md:flex md:p-8 border rounded-md">
