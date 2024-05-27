@@ -142,8 +142,7 @@ const Sidebar = ({ isSidebarOpen }) => {
         <Link to="#">
           <div className="p-3 border-b border-1">
             <div className="text-black text-4xl font-bold">
-              {/* <img src="https://www.npc.ac.rw/fileadmin/templates/assets/images/NPC_LOGO.png" alt="" className="w-32 h-24" /> */}
-              <img src="https://www.npc.ac.rw/fileadmin/templates/assets/images/logo.png" alt="" className="w-32 h-24" />         
+              <img src="https://www.npc.ac.rw/fileadmin/templates/assets/images/NPC_LOGO.png" alt="" className="w-24 h-24" />
             </div>
           </div>
         </Link>
