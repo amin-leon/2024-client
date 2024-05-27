@@ -128,9 +128,11 @@ const LoginForm = () => {
                 </label>
               </div>
               <div className="text-sm">
-                <div className="text-gray-400 hover:text-[#1F3365]">
-                  Forgot your password?
-                </div>
+                <Link to="http://localhost:3000/reset">
+                  <div className="text-gray-400 hover:text-[#1F3365]">
+                    Forgot your password?
+                  </div>
+                </Link>
               </div>
             </div>
             <div>
@@ -142,9 +144,9 @@ const LoginForm = () => {
             <p>Don't Have account? <Link to='/register' className='text-[#1F3365]'>Sign Up</Link></p>
             </div>
             {error && <div style={{ color: 'red' }}>{ error }</div>}
-            <div className='flex items-center justify-center'>
+            {/* <div className='flex items-center justify-center'>
               <SocialIcons />
-            </div>
+            </div> */}
         </div>
       </div>
   </div>

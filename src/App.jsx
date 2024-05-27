@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import DashboardLayout from './DashboardLayout';
 import LoginForm from './pages/Login';
 import RegisterForm from './pages/Register';
+import PasswordResetForm from './pages/ResetPassword';
 import Home from './pages/Home';
 import ManageSystem from './components/Admin/ManageSystem';
 import StaffHomePage from './components/Staff/StaffHomePage';
@@ -55,6 +56,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={!isLoggedIn ? <LoginForm /> : <Navigate to="/Home" />} />
         <Route path="/register" element={<RegisterForm />} />
+        <Route path="/reset" element={<PasswordResetForm />} />
         <Route
           path="/Home/*"
           element={
