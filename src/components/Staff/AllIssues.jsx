@@ -159,6 +159,7 @@ function AllIssues() {
                 <th className="py-3 px-6 text-left">Title</th>
                 <th className="py-3 px-6 text-left">Status</th>
                 <th className="py-3 px-6 text-left">Priority</th>
+                <th className="py-3 px-6 text-left">In Board ?</th>
                 <th className="py-3 px-6 text-left">Actions</th>
               </tr>
             </thead>
@@ -185,12 +186,16 @@ function AllIssues() {
                   <td className="py-3 px-6 text-left text-red-500 whitespace-nowrap font-extrabold">
                     {issue.priority}
                   </td>
+                  <td className="py-3 px-6 text-left whitespace-nowrap font-extrabold">
+                    {issue.inChatRoom ? <p className='text-green-500 '>Yes</p>: <p className='text-black'>No</p>}
+                  </td>
                   <td className="py-3 px-6 text-left whitespace-nowrap">
                     <div className="flex flex-col gap-1">
                       {issue.status ==="closed" && (
                         <button
                             onClick={() => handleIconClick(issue._id)}
                             className="cursor-pointer text-blue-500 text-sx font-semibold"
+                            disabled
                           >
                            Solved
                         </button>
