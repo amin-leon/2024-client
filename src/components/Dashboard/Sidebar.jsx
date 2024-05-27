@@ -138,11 +138,12 @@ const Sidebar = ({ isSidebarOpen }) => {
   return (
     <div className={`bg-white sm:text-black sm:h-screen sm:w-64 sm:border border-r-1 md:block transition-width duration-500 ${isSidebarOpen ? 'w-full' : 'hidden md:block'}`}>
       {/* Your Sidebar content here */}
-      <div className="sm:flex flex flex-col items-center p-4">
+      <div className="sm:flex flex flex-col px-4 pb-6 pt-5">
         <Link to="#">
-          <div className="p-3 border-b border-1">
-            <div className="text-black text-4xl font-bold">
-              <img src="https://www.npc.ac.rw/fileadmin/templates/assets/images/NPC_LOGO.png" alt="" className="w-24 h-24" />
+          <div className="border-b border-1">
+            <div className="text-6xl font-bold text-[#1F3365]">
+              {/* <img src="https://www.npc.ac.rw/fileadmin/templates/assets/images/NPC_LOGO.png" alt="" className="w-24 h-24" /> */}
+              NPC
             </div>
           </div>
         </Link>

@@ -32,7 +32,7 @@ function AccountSettingsAdmin() {
     <div className=''>
   
       <div className='w-full md:flex h-[8%] md:px-4 md:flex-col md:items-center'>
-        <div className='flex md:w-[90%] justify-between bg-slate-200 p-5'>
+        <div className='flex md:w-[90%] justify-between bg-slate-200 p-2'>
             <div className=''>
               <p>Account Settings</p>
             </div>

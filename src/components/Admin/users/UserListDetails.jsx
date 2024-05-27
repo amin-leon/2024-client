@@ -126,12 +126,12 @@ const UserDetailsPage = () => {
     }
   }
   return (
-    <div className="min-h-screen bg-gray-100 py-16">
+    <div className="h-auto bg-gray-100 py-8">
       {pendingUsers?.length === 0 ? (
         <div className="mt-32">No User Available</div>
       ) : (
         pendingUsers?.map((userData, index) => (
-          <div key={index} className="max-w-screen-lg mx-auto bg-white p-8 rounded shadow-md">
+          <div key={index} className="max-w-screen-lg mx-auto bg-white p-2 rounded shadow-md">
 
             {/* Left Part */}
             <div className="flex items-center space-x-4">
@@ -220,7 +220,7 @@ const UserDetailsPage = () => {
                   </button>
                 </div>
               )}
-              {userData?.accountStatus === 'inactive' && (
+              {userData?.accountStatus === 'inactive' && !userData?.approvalStatus === 'pending' && (
                 <div>
                   <button
                     className="bg-green-500 hover:bg-green-700 text-white px-4 py-2 mt-3 rounded-md"
