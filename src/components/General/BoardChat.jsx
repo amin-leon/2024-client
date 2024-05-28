@@ -81,6 +81,12 @@ function BoardChat() {
   const RemoveIssuefromGroup = async (e) => {
     e.preventDefault();
     const issueId = currentIssue[0]._id;
+    
+    const userConfirmed = window.confirm("Want to remove issue in chatRoom?");
+    if (!userConfirmed) {
+      return; // Exit the function if the user cancels the action
+    }
+  
     try {
       await axios.put(`http://localhost:8080/issue/remove/${issueId}`);
       navigate('/Home/board-issues');
@@ -88,6 +94,7 @@ function BoardChat() {
       console.error(error);
     }
   };
+  
 
   return (
     // grid grid-cols-3 gap-4 pl-32 pt-10

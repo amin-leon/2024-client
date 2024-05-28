@@ -27,7 +27,7 @@ const leaders = [
 const Home = () => {
   return (
     <div className="container mx-auto py-2 rounded-md bg-gray-200">
-      <h1 className="text-2xl font-bold text-center mb-10">NPC Leadership Stracture</h1>
+      <h1 className="text-2xl font-bold text-center mb-10">NPC Leadership Structure</h1>
       <div className="flex flex-col gap-8">
         <div className="flex justify-center w-full gap-16 md:gap-32">
           {leaders.slice(0, 1).map(leader => (

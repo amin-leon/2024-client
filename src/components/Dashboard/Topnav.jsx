@@ -46,10 +46,10 @@ const Topnav = ({ toggleSidebar, isSidebarOpen }) => {
     if (user) {
       fetchNotifications();
       fetchAlerts();
-      
+
       const notificationsInterval = setInterval(fetchNotifications, 20000);
       const alertsInterval = setInterval(fetchAlerts, 20000);
-      
+
       return () => {
         clearInterval(notificationsInterval);
         clearInterval(alertsInterval);
@@ -64,10 +64,10 @@ const Topnav = ({ toggleSidebar, isSidebarOpen }) => {
 
   return (
     <div className={`bg-white text-gray-700 h-24 flex justify-between items-center px-6 shadow-md ${isSidebarOpen ? 'ml-64' : ''}`}>
-       <div className="flex items-center">
+      <div className="flex items-center">
         <div className="flex items-center text-black flex-grow justify-center gap-2">
           <button onClick={toggleSidebar} className="text-gray-700 focus:outline-none mr-3 md:hidden">
-            <FaBars className='text-3xl'/>
+            <FaBars className='text-3xl' />
           </button>
         </div>
       </div>
@@ -100,7 +100,7 @@ const Topnav = ({ toggleSidebar, isSidebarOpen }) => {
             </Link>
             {alerts.length > 0 && (
               <span className="bg-red-500 text-white rounded-full px-2 ml-6 absolute top-[-6px] left-8">
-                { alerts[0]?.count }
+                {alerts[0]?.count}
               </span>
             )}
             <button className="focus:outline-none" onClick={handleLogout}>
@@ -108,10 +108,18 @@ const Topnav = ({ toggleSidebar, isSidebarOpen }) => {
             </button>
           </div>
         </div>
+        {user && (
+          <div className="flex items-center gap-3">
+            <img src={`http://localhost:8080/${user?.profile}`} alt="Profile" className="w-10 h-10 rounded-full" />
+            <div className="text-sm">
+              <div>{user.role}</div>
+              <div>{user.fullName}</div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default Topnav;
-
