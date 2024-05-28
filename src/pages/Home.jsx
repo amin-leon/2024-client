@@ -11,23 +11,23 @@ const leaders = [
   {
     id: 2,
     name: 'ACP O NTAGANIRA ',
-    role: 'Dpt Commandant',
+    role: 'Chief Instrucor',
     description: 'Jane brings a wealth of experience and a dedication to fostering a supportive learning environment.',
-    imageUrl: 'https://police.gov.rw/fileadmin/user_upload/RUKU2.png'
+    imageUrl: 'https://www.npc.ac.rw/fileadmin/user_upload/ntaganira-2.jpg'
   },
   {
     id: 3,
-    name: 'Rtd ACP P GAKWAYA',
+    name: 'ACP (Rtd) P GAKWAYA',
     role: 'Academics',
     description: 'Robert\'s innovative approach to teaching mathematics has inspired countless students to excel in the subject.',
-    imageUrl: 'https://police.gov.rw/fileadmin/user_upload/gumira.jpg'
+    imageUrl: 'https://www.npc.ac.rw/fileadmin/user_upload/gakwaya-2.jpg'
   },
 ];
 
 const Home = () => {
   return (
     <div className="container mx-auto py-2 rounded-md bg-gray-200">
-      <h1 className="text-2xl font-bold text-center mb-10">NPC Leadership Structure</h1>
+      <h1 className="text-2xl font-bold text-center mb-10">NPC Leadership and Staff</h1>
       <div className="flex flex-col gap-8">
         <div className="flex justify-center w-full gap-16 md:gap-32">
           {leaders.slice(0, 1).map(leader => (
