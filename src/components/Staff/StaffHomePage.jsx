@@ -102,13 +102,19 @@ const StaffHomePage = () => {
       return () => clearInterval(interval);
     }
   }, [dispatch, assignedToId]);
+  
+  const totalIssues = filteredNewIssues.length + filteredProgressIssues.length + filteredClosedIssues.length;
 
   const data = {
     labels: ['New', 'Progressing', 'Closed'],
     datasets: [
       {
         label: 'Status of Issues',
-        data: [filteredNewIssues.length, filteredProgressIssues.length, filteredClosedIssues.length],
+        data: [
+          (filteredNewIssues.length / totalIssues) * 100,
+          (filteredProgressIssues.length / totalIssues) * 100,
+          (filteredClosedIssues.length / totalIssues) * 100
+        ],
         backgroundColor: [
           'rgba(54, 162, 235, 0.2)', // New
           'rgba(255, 206, 86, 0.2)', // Progress
@@ -119,24 +125,23 @@ const StaffHomePage = () => {
           'rgba(255, 206, 86, 1)', // Progress
           'rgba(75, 192, 192, 1)', // Closed
         ],
-        borderWidth: 5,
+        borderWidth: 3,
       },
     ],
   };
-
+  
   const options = {
     scales: {
       y: {
-        min: 0,
-        max: 100,
+        beginAtZero: true,
         ticks: {
-          callback: function(value) {
-            return value + '%';
-          }
-        }
-      }
-    }
+          stepSize: 10,
+          callback: (value) => `${value}%`,
+        },
+      },
+    },
   };
+  
 
   return (
     <div>

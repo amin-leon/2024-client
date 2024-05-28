@@ -183,9 +183,10 @@ function AllIssues() {
                   <td className="py-3 px-6 text-left  whitespace-nowrap">
                     {issue.status}
                   </td>
-                  <td className="py-3 px-6 text-left text-red-500 whitespace-nowrap font-extrabold">
+                  <td className={`py-3 px-6 text-left ${issue.priority === "Low" ? "text-black" : "text-red-500"} whitespace-nowrap font-extrabold`}>
                     {issue.priority}
                   </td>
+
                   <td className="py-3 px-6 text-left whitespace-nowrap font-extrabold">
                     {issue.inChatRoom ? <p className='text-green-500 '>Yes</p>: <p className='text-black'>No</p>}
                   </td>

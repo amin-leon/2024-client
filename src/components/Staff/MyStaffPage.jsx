@@ -33,7 +33,6 @@ function MyStaffPage() {
   };
 
   return (
-    // 
     <div className="md:px-8 md:py-2 md:w-full md:grid md:grid-cols-6">
       <div className="pt-10 flex flex-col p-6 gap-3 col-span-1 border bg-gray-50">
         <div
