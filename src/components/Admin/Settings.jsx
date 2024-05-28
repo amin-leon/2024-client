@@ -58,7 +58,7 @@ function AccountSettingsAdmin() {
             </div>
         </div>
         {/* w-[90%] flex justify-center bg-white border p-24 */}
-        <div className=' md:w-[90%] md:flex md:justify-center md:bg-white border md:p-24'>
+        <div className=' md:w-[90%] md:flex md:justify-center md:bg-white border md:p-12'>
           {renderSettingContent()}
         </div>
       </div>

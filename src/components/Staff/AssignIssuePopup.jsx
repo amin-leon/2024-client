@@ -10,6 +10,7 @@ function AssignIssuePopup({ isOpen, onClose, issueId, senderId }) {
   const [assignedTo, setSelectedStaff] = useState('');
   const [priority, setPriority] = useState('');
   const [allStaffs, setAllStaffs] = useState([])
+  const [staffPosition, setStaffPosition] = useState('');
   const dispatch = useDispatch()
   const staff='Staff';
   const status = 'assigned'
@@ -27,6 +28,14 @@ function AssignIssuePopup({ isOpen, onClose, issueId, senderId }) {
     fetchIssuesData();
   }, []);
 
+  // where is assigned
+  useEffect(() => {
+    const selectedStaff = allStaffs.find(staff => staff._id === assignedTo);
+    if (selectedStaff) {
+      setStaffPosition(selectedStaff.position); // Assuming 'position' is the key for staff position
+    }
+  }, [assignedTo, allStaffs]);
+
     // token
     const token = sessionStorage.getItem('authToken');
 
@@ -37,8 +46,11 @@ function AssignIssuePopup({ isOpen, onClose, issueId, senderId }) {
 
 // update 
   const handleAssignIssue = async(e) => {
+    const selectedStaff = allStaffs.find(staff => staff._id === assignedTo);
+    const staffPosition = selectedStaff.position
+
     e.preventDefault()
-    await axios.put(`http://localhost:8080/issue/assign/${issueId}`, {assignedTo, senderId, priority, status, issueId}, {
+    await axios.put(`http://localhost:8080/issue/assign/${issueId}`, {assignedTo, senderId, priority, status, issueId, staffPosition}, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

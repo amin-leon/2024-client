@@ -18,7 +18,7 @@ function IssuePageMenuAllIssues() {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear().toString());
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true); // Loading state
-  const issuesPerPage = 10;
+  const issuesPerPage = 6;
 
   useEffect(() => {
     const storedUserInfo = JSON.parse(sessionStorage.getItem('authState'));

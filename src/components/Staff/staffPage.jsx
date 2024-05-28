@@ -20,7 +20,7 @@ function StaffPage() {
   );
 
   const allIssues = useSelector((state) => state.issue.issues);
-  const recentIssues = (allIssues.slice(0, 5));
+  const recentIssues = (allIssues.slice(0, 3));
 
   const indexOfLastIssue = currentPage * itemsPerPage;
   const indexOfFirstIssue = indexOfLastIssue - itemsPerPage;

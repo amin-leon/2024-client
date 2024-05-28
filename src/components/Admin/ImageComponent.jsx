@@ -66,9 +66,9 @@ function ImageComponent() {
           
       )}
 
-      <h2 className="text-2xl mb-4 pb-7">Edit Profile Image</h2>
+      <h2 className="text-2xl mb-4 pb-3">Edit Profile Image</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+        <div className="mb-1">
           <input
             type="file"
             accept="image/*"
