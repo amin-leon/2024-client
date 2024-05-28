@@ -177,11 +177,11 @@ const StaffHomePage = () => {
             <p>Recent issues</p>
           </div>
           <div className="issues-list flex flex-col gap-5 py-4">
-            {filteredProgressIssues.length > 0 ? (
-              filteredProgressIssues.slice(0, 4).map((issue) => (
+            {All_Issues.length > 0 ? (
+              All_Issues.slice(0, 2).map((issue) => (
                 <div className="issue-1 border p-4 rounded-md space-y-2" key={issue._id}>
                   <p>{issue.title}</p>
-                  {issue.status === 'assigned' && <p className="px-3 text-red-500">{issue.status}</p>}
+                   <p className="px-3">{issue.createdAt}</p>
                 </div>
               ))
             ) : (

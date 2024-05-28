@@ -118,7 +118,7 @@ function IssuePageMenuAllIssues() {
         >
           <option value="all">All</option>
           <option value="assigned">New</option>
-          <option value="proress">In Progress</option>
+          <option value="progress">In Progress</option>
           <option value="closed">Closed</option>
         </select>
         <select
