@@ -37,14 +37,14 @@ const StaffHomePage = () => {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
 
-  const filteredProgressIssues = progressIssues.filter((issue) => {
+  const filteredProgressIssues = prog.filter((issue) => {
     const issueDate = new Date(issue.createdAt);
-    return issueDate.getMonth() === currentMonth && issue.status !== 'assigned';
+    return issueDate.getMonth() === currentMonth && issue.status === 'progress';
   });
 
   const filteredClosedIssues = closedIssues.filter((issue) => {
     const issueDate = new Date(issue.createdAt);
-    return issueDate.getMonth() === currentMonth && issue.status !== 'assigned';
+    return issueDate.getMonth() === currentMonth && issue.status === 'closed';
   });
 
   const filteredNewIssues = newIssues.filter((issue) => {
